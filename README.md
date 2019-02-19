@@ -3,11 +3,16 @@ A tool to help with grinding through problems on kattis with vim.
 
 https://open.kattis.com/
 
+Supported systems:
+- Should be fine on anything with bash
+
 Supported languages:
 - python3
 
 
 # setup
+Download `.kattisrc` to your home folder, as specified in https://github.com/Kattis/kattis-cli.
+
 In your `~/.vimrc`, you need the line
 ```vim script
 set exrc
