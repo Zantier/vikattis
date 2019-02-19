@@ -1,7 +1,7 @@
 text=$(python3 submit/submit.py -f -l "Python 3" "$1" <<<'n')
-echo text
-echo -------
+echo -e "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
 echo $text
+echo ""
 
 regex='ID: (.*)\.'
 if [[ "$text" =~ $regex ]]; then
