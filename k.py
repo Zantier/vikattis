@@ -5,6 +5,7 @@ line-separated text file problems.txt, and problems will be deleted from the fil
 they are completed.
 '''
 
+import glob
 from lxml import html
 import os
 import subprocess
@@ -102,7 +103,9 @@ def start_problem(problem_id, repeat=False):
 			os.remove(os.path.join(problem_path, 'submission.txt'))
 		except:
 			pass
-	else:
+
+	# If there are no input files, download the samples
+	if len(glob.glob(os.path.join(problem_path, '*.in'))) == 0:
 		cookies = get_cookies()
 		download_file(problem_url + '/file/statement/samples.zip', samples_path, cookies)
 		# unzip into correct directory with -d
