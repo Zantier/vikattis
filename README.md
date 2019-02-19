@@ -22,7 +22,7 @@ chmod +x *.sh
 Create a file `problems.txt`, with a line-separated list of problem IDs on kattis.
 Note that the lines will be deleted as problems are solved.
 
-It may help to paste this javscript snippet into the console of chrome developer tools. It copies clipboard a
+It may help to paste this javscript snippet into the console of chrome developer tools. It copies to clipboard a
 line-separated list of problem IDs that haven't been completed on the current page, then clicks the
 "Next" button. On the next page, you can run the script again by pressing `UP`, `ENTER`.
 
