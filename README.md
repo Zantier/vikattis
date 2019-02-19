@@ -1,0 +1,52 @@
+# vikattis
+A tool to help with grinding through problems on kattis with vim.
+
+https://open.kattis.com/
+
+Supported languages:
+- python3
+
+
+# setup
+In your `~/.vimrc`, you need the line
+```vim script
+set exrc
+```
+to allow loading local `.vimrc` files.
+
+Make the shell scripts executable:
+```bash
+chmod +x *.sh
+```
+
+Create a file `problems.txt`, with a line-separated list of problem IDs on kattis.
+Note that the lines will be deleted as problems are solved.
+
+It may help to paste this javscript snippet into the console of chrome developer tools. It copies clipboard a
+line-separated list of problem IDs that haven't been completed on the current page, then clicks the
+"Next" button. On the next page, you can run the script again by pressing `UP`, `ENTER`.
+
+```javascript
+copyToClipboard = str => {
+    const el = document.createElement('textarea');
+    el.value = str;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+};
+x = document.querySelectorAll('tr:not(.solved)>td.name_column>a');
+str='';
+for (let y of x) str += y.href.slice(y.href.lastIndexOf('/')+1) + '\n'; copyToClipboard(str);
+document.querySelector('#problem_list_next').click();
+```
+
+# usage
+Run with `python3 k.py`
+
+In vim use:
+- `<leader>m` to run the code.
+- `<leader>j` to test the code against the sample inputs and outputs. The samples that fail are displayed.
+- `<leader>k` to submit the file to kattis.
+
+where `<leader>` in vim is `\` by default.
