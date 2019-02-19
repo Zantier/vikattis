@@ -1,6 +1,4 @@
 __pycache__/
 
-# Ignore the problem folders
-/*/
-!/submit/
+/problems/
 /problems.txt

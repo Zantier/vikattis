@@ -16,6 +16,9 @@ from getch import getch
 from submit.submit import *
 
 
+PROBLEM_DIR = 'problems'
+
+
 def main():
 	problem_ids = read_problem_ids()
 	if len(problem_ids) == 0:
@@ -28,7 +31,7 @@ def main():
 		repeat = True
 		submission_id = None
 		try:
-			with open(problem_ids[0] + '/submission.txt') as f:
+			with open(os.path.join(get_dir(problem_ids[0]), 'submission.txt')) as f:
 				submission_id = f.read().strip()
 		except OSError:
 			pass
@@ -77,28 +80,35 @@ def ask_exit():
 
 def start_problem(problem_id, repeat=False):
 	problem_url = 'https://open.kattis.com/problems/' + problem_id
+	problem_path = get_dir(problem_id)
+	samples_path = os.path.join(problem_path, 'samples.zip')
 
 	if not repeat:
 		webbrowser.open(problem_url)
 
+	try:
+		os.mkdir(PROBLEM_DIR)
+	except FileExistsError:
+		pass
+
 	dir_exists = False
 	try:
-		os.mkdir(problem_id)
+		os.mkdir(problem_path)
 	except FileExistsError:
 		dir_exists = True
 
 	if dir_exists:
 		try:
-			os.remove(problem_id + '/submission.txt')
+			os.remove(os.path.join(problem_path, 'submission.txt'))
 		except:
 			pass
 	else:
 		cookies = get_cookies()
-		download_file(problem_url + '/file/statement/samples.zip', problem_id + '/samples.zip', cookies)
+		download_file(problem_url + '/file/statement/samples.zip', samples_path, cookies)
 		# unzip into correct directory with -d
-		subprocess.run(['unzip', problem_id + '/samples.zip', '-d', problem_id])
+		subprocess.run(['unzip', samples_path, '-d', problem_path])
 
-	subprocess.run(['vim', problem_id + '/' + problem_id + '.py'])
+	subprocess.run(['vim', os.path.join(problem_path, problem_id + '.py')])
 
 
 def download_file(url, path, cookies):
@@ -151,6 +161,10 @@ def write_problem_ids(problem_ids):
 	with open('problems.txt', 'w') as f:
 		data = '\n'.join(problem_ids) + '\n'
 		f.write(data)
+
+
+def get_dir(problem_id):
+	return os.path.join(PROBLEM_DIR, problem_id);
 
 
 def input_ch(text):
