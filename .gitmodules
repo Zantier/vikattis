@@ -1,0 +1,3 @@
+[submodule "submit"]
+	path = submit
+	url = https://github.com/Kattis/kattis-cli.git
