@@ -3,6 +3,8 @@ A tool to help with grinding through problems on kattis with vim.
 
 https://open.kattis.com/
 
+![Demo Animation](../media/demo.gif?raw=true)
+
 Supported systems:
 - Should be fine on anything with bash
 
