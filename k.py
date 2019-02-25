@@ -22,12 +22,13 @@ PROBLEM_DIR = 'problems'
 
 def main():
 	problem_ids = read_problem_ids()
-	if len(problem_ids) == 0:
-		print("No problem IDs in problem.txt")
-		sys.exit(1)
 	
 	repeat = False
 	while True:
+		if len(problem_ids) == 0:
+			print("No problem IDs in problems.txt")
+			sys.exit(1)
+
 		start_problem(problem_ids[0], repeat)
 		repeat = True
 		submission_id = None
