@@ -26,12 +26,12 @@ set exrc
 ```
 to allow loading local `.vimrc` files.
 
-Make the shell scripts executable:
-```bash
-chmod +x *.sh
+Download this repo (with submodules) to any folder
+```
+git clone --recursive https://github.com/Zantier/vikattis.git kattis && cd kattis && echo carrots >problems.txt
 ```
 
-Create a file `problems.txt`, with a line-separated list of problem IDs on kattis.
+Modify the file `problems.txt`, to contain a line-separated list of problem IDs on kattis.
 Note that problems will be presented to you in the order they are in the file, and the lines will be
 deleted as problems are solved.
 
