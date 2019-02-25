@@ -11,6 +11,11 @@ Supported systems:
 Supported languages:
 - python3
 
+# requirements
+**python3**, with the following modules (installed using `pip3`, for example):
+- requests
+- lxml
+- cssselect
 
 # setup
 Download `.kattisrc` to your home folder, as specified in https://github.com/Kattis/kattis-cli.
