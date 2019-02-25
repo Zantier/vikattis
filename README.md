@@ -35,17 +35,10 @@ line-separated list of problem IDs that haven't been completed on the current pa
 "Next" button. On the next page, you can run the script again by pressing `UP`, `ENTER`.
 
 ```javascript
-copyToClipboard = str => {
-    const el = document.createElement('textarea');
-    el.value = str;
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
-};
 x = document.querySelectorAll('tr:not(.solved)>td.name_column>a');
 str='';
-for (let y of x) str += y.href.slice(y.href.lastIndexOf('/')+1) + '\n'; copyToClipboard(str);
+for (let y of x) str += y.href.slice(y.href.lastIndexOf('/')+1) + '\n';
+copy(str);
 document.querySelector('#problem_list_next').click();
 ```
 
