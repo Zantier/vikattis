@@ -35,7 +35,7 @@ Modify the file `problems.txt`, to contain a line-separated list of problem IDs 
 Note that problems will be presented to you in the order they are in the file, and the lines will be
 deleted as problems are solved.
 
-It may help to paste this javascript snippet into the console of chrome developer tools. It copies to clipboard a
+An easy way to populate `problems.txt` is to log into kattis, go to https://open.kattis.com/problems?order=problem_difficulty, and paste this javascript snippet into the console of firefox/chrome developer tools. It copies to clipboard a
 line-separated list of problem IDs that haven't been completed on the current page, then clicks the
 "Next" button. On the next page, you can run the script again by pressing `UP`, `ENTER`.
 
