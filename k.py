@@ -9,6 +9,7 @@ import glob
 from lxml import html
 import os
 import subprocess
+import sys
 import time
 import urllib.request
 import webbrowser
@@ -22,6 +23,8 @@ PROBLEM_DIR = 'problems'
 
 def main():
 	problem_ids = read_problem_ids()
+	if len(sys.argv) >= 2:
+		problem_ids.insert(0, sys.argv[1])
 	
 	repeat = False
 	while True:
